@@ -9,31 +9,38 @@ error_reporting(E_ALL);
 ///  * Abuse of operator OOO in echo 
 ///  * Magic variable creation functions like preg_match
 
+//Sources:
+/// To give credit where credit is due:
+// http://jstubbs.blogspirit.com/archive/2007/05/01/php-idiosyncrasies.html
+// http://stackoverflow.com/questions/1105423/php-quirks-and-pitfalls
+// 
+
+
 echo "<br />";
 
 $x = 1;
 echo ":::::";
-echo $x == ++$x ;
+if( $x == $x++ )
+echo "hi";
+else
+echo "hello";
+if ( (int)$x == $x++ )
+echo "bye";
+else
+echo "seeya";
 echo "......";
 
 //----------
 
+echo "<br/><br/>";
+
 echo "foo: " . $x+69  . " bar<br />";
-echo "foo: " . $x+1  . " bar<br />";
+echo "foo: " . $x-1  . " bar<br />";
 echo "foo: " . $x*5  . " bar<br />";
-echo "done <br/>";
-
-
-
-//
-//echo 69 . " bar<br/>";
-//echo "foo: " . 1;
-//echo "<br/>";
-echo  "foo: " . 1+69 . " bar<br/>" ;
+echo "foo: " . $x%2 . "bar<br />";
 
 
 /// ---------------------------
-
 
 
 $a = 0;
@@ -48,8 +55,9 @@ var_dump($b == TRUE);
 ///// -------------------------
 
 
-$test = "12ab";
-if (12 == $test)
+echo "<br /><br/>";
+$test = "zero";
+if (0 == $test)
 {
 	echo "sweet math";
 }
