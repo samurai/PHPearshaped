@@ -2,58 +2,39 @@
 
 error_reporting(E_ALL);
 
-echo "Testing!";
+echo "POST: ";
+print_r($_POST);
 
-//Ideas:
-///  * Type'ing based equality issues
-///  * Closing global writelocks and still using super globals
-///  * Abuse of ++ operator order of operations
-///  * Abuse of operator OOO in echo 
-///  * Magic variable creation functions like preg_match
+echo "<br/>------------------------------------------<br />";
+echo "Begin output<br/>";
+echo "<br/>------------------------------------------<br />";
 
-echo "<br />";
-
-$x = 1;
-//echo (int)$x == ++$x ;
-
-
-//----------
-
-echo "foo: " . $x+69  . " bar<br />";
-echo "foo: " . $x+1  . " bar<br />";
-echo "foo: " . $x*5  . " bar<br />";
-echo "done <br/>";
-
-
-
-//
-//echo 69 . " bar<br/>";
-//echo "foo: " . 1;
-//echo "<br/>";
-echo  "foo: " . 1+69 . " bar<br/>" ;
-
-
-/// ---------------------------
-
-
-
-$a = 0;
-$b = 'x';
-
-echo "<br/><br/>";
-var_dump(FALSE == $a);
-var_dump($a == $b);
-var_dump($b == TRUE);
-//true is false :D
-
-///// -------------------------
-
-
-$test = "12ab";
-if (12 == $test)
-{
-	echo "sweet math";
-}
 
 
 ?>
+
+<html>
+	<body>
+		<form action='' method='post'>
+			<table>
+				<tr>
+					<td>
+						String 1:
+					</td>
+					<td>
+						<input type='text' name='string1' />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						String 2:
+					</td>
+					<td>
+						<input type='text' name='string2' />
+					</td>
+				</tr>
+			</table>
+			<input type='submit' name='submit' value='submit' />
+		</form>
+	</body>
+</html>
