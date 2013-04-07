@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+//session_write_close();
 error_reporting(E_ALL);
 
 //Ideas:
@@ -61,5 +63,22 @@ if (0 == $test)
 {
 	echo "sweet math";
 }
+
+
+//// --------------
+
+echo " <br/><br/>";
+
+echo $_SESSION['test'] . " :    :   " . $_SESSION['lastvar'];
+echo "<br />";
+function setSession($key, $val)
+{
+	session_start();
+	$_SESSION[$key] = $val . $v;
+	session_write_close();
+}
+setSession('test','bacon');
+$_SESSION['lastvar'] = $_SESSION['test'];
+echo $_SESSION['test'] . " :    :   " . $_SESSION['lastvar'];
 
 ?>
