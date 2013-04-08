@@ -1,5 +1,7 @@
 <?php
+session_start();
 error_reporting(E_ALL);
+session_write_close();
 
 // Okay this file is devoid of comments... because explaining what's happening here kinda defeats the point..
 // If you really want to cheat, have a look at the source for ideas.php.... lamer
@@ -53,7 +55,7 @@ if(isset($_POST['string1']) && isset($_POST['string2']) && $_POST['string1'] != 
 
 	if(intval($_POST['string2']) == "zero")
 	{
-		die("<strong>Are you daft!?!  You can't divide by zero!</strong><br />");
+		echo "<strong>Are you daft!?!  You can't divide by zero!</strong><br />";
 	}
 
 
@@ -61,10 +63,22 @@ if(isset($_POST['string1']) && isset($_POST['string2']) && $_POST['string1'] != 
 	echo ": " . $_POST['string1'] + $_POST['string2'] . ". <br />";
 	echo "Subtracting these numbers gives us";
 	echo ": " . $_POST['string1'] - $_POST['string2'] .  ". <br />";
-	echo "Dividing these numbers gives us";
-	echo ": " . $_POST['string1'] / $_POST['string2'] . ". </br />";
+
+	if( FALSE == $_POST['string2'])
+	{
+		if(  intval($_POST['string2']) == 'zero' && 'zero' == TRUE)
+		{
+			echo "Skipping division to save the universe.  Do not divide by zero! <br />";
+		}
+	}
+	else
+	{
+			echo "Dividing these numbers gives us";
+			echo ": " . $_POST['string1'] / $_POST['string2'] . ". </br />";
+	}
 	echo "Multiplying these numbers gives us";
 	echo ": " . $_POST['string1'] * $_POST['string2'] . ".<br />";
+
 
 }
 

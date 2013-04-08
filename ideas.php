@@ -54,6 +54,11 @@ var_dump($a == $b);
 var_dump($b == TRUE);
 //true is false :D
 
+if( FALSE == 5 && 5 == 'zero'  && 'zero' == TRUE )
+{
+	echo "how's that work now?";
+}
+
 ///// -------------------------
 
 
