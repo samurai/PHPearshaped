@@ -86,4 +86,14 @@ setSession('test','bacon');
 $_SESSION['lastvar'] = $_SESSION['test'];
 echo $_SESSION['test'] . " :    :   " . $_SESSION['lastvar'];
 
+echo "<Br/><br/>----------------------------<br/><br/>";
+
+$num = '0';
+
+preg_match("/[0-9]*/", $num, $matches);
+print_r($matches);
+
+echo "done?";
+
+
 ?>

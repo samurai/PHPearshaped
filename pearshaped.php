@@ -48,25 +48,32 @@ session_write_close();
 
 <?php
 
+
+
 if(isset($_POST['string1']) && isset($_POST['string2']) && $_POST['string1'] != "" && $_POST['string2'] != "")
 {
 
-	echo "<br />Your inputs were: " . $_POST['string1'] . " and " . $_POST['string2'] . ".<br /><br />";
+	preg_match("/[0-9]*/",$_POST['string1'],$number1);
+	preg_match("/[0-9]*/",$_POST['string2'],$number2);
+	$number1 = $number1[0];
+	$number2 = $number2[0];
 
-	if(intval($_POST['string2']) == "zero")
+	echo "<br />Your inputs were: " . $number1 . " and " . $number2 . ".<br /><br />";
+
+	if(intval($number2) == "zero")
 	{
 		echo "<strong>Are you daft!?!  You can't divide by zero!</strong><br />";
 	}
 
 
 	echo "Adding these numbers gives us";
-	echo ": " . $_POST['string1'] + $_POST['string2'] . ". <br />";
+	echo ": " . $number1 + $number2 . ". <br />";
 	echo "Subtracting these numbers gives us";
-	echo ": " . $_POST['string1'] - $_POST['string2'] .  ". <br />";
+	echo ": " . $number1 - $number2 .  ". <br />";
 
-	if( FALSE == $_POST['string2'])
+	if( FALSE == $number2)
 	{
-		if(  intval($_POST['string2']) == 'zero' && 'zero' == TRUE)
+		if(  intval($number2) == 'zero' && 'zero' == TRUE)
 		{
 			echo "Skipping division to save the universe.  Do not divide by zero! <br />";
 		}
@@ -74,10 +81,10 @@ if(isset($_POST['string1']) && isset($_POST['string2']) && $_POST['string1'] != 
 	else
 	{
 			echo "Dividing these numbers gives us";
-			echo ": " . $_POST['string1'] / $_POST['string2'] . ". </br />";
+			echo ": " . $number1 / $number2 . ". </br />";
 	}
 	echo "Multiplying these numbers gives us";
-	echo ": " . $_POST['string1'] * $_POST['string2'] . ".<br />";
+	echo ": " . $number1 * $number2 . ".<br />";
 
 
 }
